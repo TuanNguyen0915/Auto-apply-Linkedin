@@ -7,7 +7,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
-# webdriver_manager will automatically download the driver_patch
 
 link = ""
 MY_EMAIL = ""
@@ -25,8 +24,6 @@ try:
 except NoSuchElementException:
     pass
 
-# WebDriver = waiting until the driver can find unsername_input
-# if it can field immediately, we can skip time.sleep()
 username_field = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, "username")))
 username_field.send_keys(MY_EMAIL)
 password_field = driver.find_element(By.ID, 'password')
